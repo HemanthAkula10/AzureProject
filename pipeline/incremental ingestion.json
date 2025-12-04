@@ -5,6 +5,8 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
@@ -17,6 +19,8 @@
 						{
 							"name": "AzureSQLToLake",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "last_cdc",
@@ -95,6 +99,8 @@
 						{
 							"name": "last_cdc",
 							"type": "Lookup",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -134,6 +140,8 @@
 						{
 							"name": "current",
 							"type": "SetVariable",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"secureOutput": false,
@@ -151,7 +159,7 @@
 						{
 							"name": "IfIncrementalData",
 							"type": "IfCondition",
-							"state": "Active",
+							"state": "Inactive",
 							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
@@ -171,6 +179,8 @@
 									{
 										"name": "DeleteEmptyFile",
 										"type": "Delete",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
@@ -209,6 +219,8 @@
 									{
 										"name": "max_cdc",
 										"type": "Script",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
@@ -238,6 +250,8 @@
 									{
 										"name": "Copy data1",
 										"type": "Copy",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [
 											{
 												"activity": "max_cdc",
